@@ -1,4 +1,5 @@
 <?php 
+include("../function.php");
 include('../layouts/head.php');
 
 ?>
@@ -22,14 +23,27 @@ include('../layouts/header.php');
     </div>
     <div class="card-body">
      <table class="table">
-      <thead>
-       <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Action</th>
-       </tr>
+      <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Email</th>
+       <th>Password</th>
+       <th>Action</th>
+      </tr>
+      <?php 
+      $users_table_data = get_users_table_data($conn);
+      foreach($users_table_data as $user) {
+          echo "<tr>";
+          echo "<td>" . $user['id'] . "</td>";
+          echo "<td>" . $user['username'] . "</td>";
+          echo "<td>" . $user['email'] . "</td>";
+          echo "<td>" . $user['password'] . "</td>";
+            echo "<td>";
+            echo "<a href='edit.php?id=" . $user['id'] . "' class='btn btn-primary'>Edit</a>";
+            echo "<a href='../actions/user_delete.php?id=" . $user['id'] . "' class='btn btn-danger'>Delete</a>";
+          echo "</tr>";
+      }
+      ?>
      </table>
     </div>
    </div>
