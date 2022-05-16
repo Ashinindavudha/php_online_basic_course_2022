@@ -12,7 +12,7 @@ echo $fruits[1] . '<br>';
 
 // set element by index
 $fruits[0] = "Peach";
-
+echo $fruits[0] . '<br>';
 // check if array has element at index 2 
 
 echo '<pre>';
@@ -105,6 +105,4 @@ echo $persons['address']. '<br>';
 
 //check if array has specific key
 
-echo '<pre>';
-var_dump(isset ('Apple', $fruits));
-echo '</pre>';
+

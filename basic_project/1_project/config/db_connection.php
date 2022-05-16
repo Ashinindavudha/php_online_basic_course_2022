@@ -2,6 +2,7 @@
 // db connection
 $host = 'localhost';
 $user = 'root';
+//$pass = 'admin123';
 $pass = '';
 $db = 'basic_project';
 

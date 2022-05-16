@@ -59,3 +59,19 @@ function delete_data_user($conn, $id) {
         echo "Failed to delete data";
     }
 }
+
+// findByEmailAndPassword
+function findByEmailAndPassword($conn, $email, $password) {
+    $find_user_data = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password';";
+    $find_data = mysqli_query($conn, $find_user_data);
+    $find_data_result = mysqli_fetch_assoc($find_data);
+    return $find_data_result;
+}
+
+
+// user logout function
+function user_logout() {
+    session_start();
+    session_destroy();
+    header("Location: ../index.php");
+}
